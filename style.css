@@ -1,0 +1,34 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body, header, .sections {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem;
+    width: 100%;
+}
+
+.newsections {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem;
+    width: 80%;
+}
+@media (max-width: 768px) {
+ .newsections {
+    flex-direction: column;
+ }   
+ img {
+    width: 300px;
+ }
+}
+button {
+    padding: 0.4rem 1.2rem;
+}
