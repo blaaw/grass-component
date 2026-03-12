@@ -38,6 +38,7 @@ function nuevaSeccion() {
         const mobile = window.matchMedia("(max-width: 768px)")
         if (!mobile.matches) {
             newSection.style.flexDirection = "row-reverse";
+            alert("Nueva sección creada!")
         }
     }
     sections.appendChild(newSection)
