@@ -17,6 +17,7 @@ function nuevaSeccion() {
     const p = document.createElement("p");
     const btn = document. createElement("button");
     const img = document.createElement("img");
+    const mobile = window.matchMedia("(max-width: 768px)")
 
     h2.textContent = seccion.titulo;
     p.textContent = seccion.parrafo;
@@ -35,12 +36,14 @@ function nuevaSeccion() {
     newSection.appendChild(img)
 
     if (section_counter % 2 != 0) { //media querie en js (css' better)
-        const mobile = window.matchMedia("(max-width: 768px)")
         if (!mobile.matches) {
             newSection.style.flexDirection = "row-reverse";
-            alert("Nueva sección creada!")
         }
     }
+    if (mobile.matches) {        
+        alert("Nueva sección creada!")
+    }
+    
     sections.appendChild(newSection)
     section_counter++;
 }
