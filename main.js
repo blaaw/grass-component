@@ -1,8 +1,8 @@
 const seccion = {
-    titulo: "Tituto: toca un poco de Hierba",
+    titulo: "Titulo: toca un poco de Hierba",
     parrafo: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dignissimos, porro non! Totam hic earum debitis.Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
     imagen: {
-        url: "turtle-grass.jpg",
+        url: "turtle-grass.webp",
         width: 400
     } ,
     boton: "Borrame"
@@ -35,7 +35,24 @@ function nuevaSeccion() {
     newSection.appendChild(div)
     newSection.appendChild(img)
 
-    if (section_counter % 2 != 0) { //media querie en js (css' better)
+    //dark mode upon creating a new section
+    const isDark = window.getComputedStyle(document.body).backgroundColor === "rgb(21, 21, 21)";
+    if (isDark) {
+        newSection.style.color = "white";
+        newSection.style.backgroundColor = "#151515";
+        div.style.color = "white";
+        div.style.backgroundColor = "#151515";
+        btn.style.color = "white";
+        btn.style.backgroundColor = "#151515";
+        h2.style.color = "white";
+        h2.style.backgroundColor = "#151515";
+        p.style.color = "white";
+        p.style.backgroundColor = "#151515";
+           
+    }
+
+    //mobile media query en js (css' better)
+    if (section_counter % 2 != 0) { 
         if (!mobile.matches) {
             newSection.style.flexDirection = "row-reverse";
         }
@@ -55,3 +72,23 @@ function borrarSeccion() {
     section_counter--;
     }
  }
+
+ document.getElementById("dark-mode").addEventListener("click", function() {
+    const bgColor = window.getComputedStyle(document.body).backgroundColor;
+    if (bgColor === "rgb(255, 255, 255)") {
+        document.body.style.color = "white";
+        document.body.style.backgroundColor = "#151515";
+        document.getElementById("dark-mode").textContent = "modo claro";
+    } else {
+        document.body.style.color = "black";
+    document.body.style.backgroundColor = "white";
+        document.getElementById("dark-mode").textContent = "modo oscuro";
+    }
+
+    //aplicar a todas las secciones dentro de body 
+    const isDark = window.getComputedStyle(document.body).backgroundColor === "rgb(21, 21, 21)";
+    document.querySelectorAll("*").forEach(el => {
+        el.style.backgroundColor = isDark ? "#151515" : "white";
+        el.style.color = isDark ? "white" : "black";
+    });
+ })

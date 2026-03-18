@@ -2,6 +2,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    background-color: white;
+    color: #151515;
 }
 body, header, .sections {
     display: flex;
@@ -31,4 +33,12 @@ body, header, .sections {
 }
 button {
     padding: 0.4rem 1.2rem;
+}
+
+#dark-mode {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 1rem;
+    padding: 0.2rem ;
 }
